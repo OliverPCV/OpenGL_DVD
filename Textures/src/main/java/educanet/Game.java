@@ -14,10 +14,10 @@ import java.nio.IntBuffer;
 public class Game {
 
     private static final float[] vertices = {
-            0.5f, 0.5f, 0.0f, // 0 -> Top right
-            0.5f, -0.5f, 0.0f, // 1 -> Bottom right
-            -0.5f, -0.5f, 0.0f, // 2 -> Bottom left
-            -0.5f, 0.5f, 0.0f, // 3 -> Top left
+            0.2f, 0.2f, 0.0f, // 0 -> Top right
+            0.2f, -0.2f, 0.0f, // 1 -> Bottom right
+            -0.2f, -0.2f, 0.0f, // 2 -> Bottom left
+            -0.2f, 0.2f, 0.0f, // 3 -> Top left
     };
 
     private static final float[] colors = {
@@ -28,10 +28,10 @@ public class Game {
     };
 
     private static final float[] textures = {
-            1.0f, 1.0f,
             1.0f, 0.0f,
-            0.0f, 0.0f,
+            1.0f, 1.0f,
             0.0f, 1.0f,
+            0.0f, 0.0f,
     };
 
     private static final int[] indices = {
@@ -46,6 +46,10 @@ public class Game {
     private static int textureIndicesId;
 
     private static int textureId;
+
+    public static void movement(float[] vertices){
+
+    }
 
     public static void init(long window) {
         // Setup shaders
@@ -137,7 +141,7 @@ public class Game {
             IntBuffer h = stack.mallocInt(1);
             IntBuffer comp = stack.mallocInt(1);
 
-            ByteBuffer img = STBImage.stbi_load("resources/textures/img.png", w, h, comp, 3);
+            ByteBuffer img = STBImage.stbi_load("resources/textures/pngegg (1).png", w, h, comp, 3);
             if (img != null) {
                 img.flip();
 
@@ -149,5 +153,7 @@ public class Game {
             }
         }
     }
+
+
 
 }
