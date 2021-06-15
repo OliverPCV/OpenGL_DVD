@@ -49,11 +49,13 @@ public class Game {
     private static int uniformColorLocation;
     private static int uniformMatrixLocation;
 
+    private static float spriteH;
+    private static float spriteW;
+
 
     private static Matrix4f matrix = new Matrix4f()
             .identity();
     private static FloatBuffer matrixBuffer = BufferUtils.createFloatBuffer(16);
-
 
 
     public static void movement(float[] vertices){
@@ -174,7 +176,7 @@ public class Game {
             IntBuffer h = stack.mallocInt(1);
             IntBuffer comp = stack.mallocInt(1);
 
-            ByteBuffer img = STBImage.stbi_load("resources/textures/pngegg (1).png", w, h, comp, 3);
+            ByteBuffer img = STBImage.stbi_load("resources/textures/Cyborg_run.png", w, h, comp, 3);
             if (img != null) {
                 img.flip();
 
@@ -237,7 +239,6 @@ public class Game {
             playerTopLeftY += slow;
         }
 
-        System.out.println("X: " + playerTopLeftX + "   Y: " + playerTopLeftY);
 
         /*timer++;
         if (timer % 100 == 0) {
